@@ -1,13 +1,410 @@
-body {
+/* 
+====== 
+Variables 
+======
+*/
+:root {
+  /* --primaryColor: #9e3aa3; */
+  /* --primaryDarkColor: #4e1d51; */
+  --primaryColor: #f15025;
+  --primaryDarkColor: #c02c03;
+  --primaryFont: "Catamaran", sans-serif;
+  --slantedFont: "Kaushan Script", cursive;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #ececec;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --maxWidth: 40rem;
+  --smallWidth: 85vw;
+  --fullWidth: 1170px;
+}
+/* 
+====== 
+Global Styles 
+======
+*/
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--primaryFont);
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primaryFont);
+  margin-bottom: 1.25rem;
+  letter-spacing: var(--mainSpacing);
+}
+p {
+  margin-bottom: 1.25rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: var(--mainBlack);
+}
+img {
+  width: 100%;
+  display: block;
+}
+/* 
+========
+loading
+========
+*/
+.loading {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  margin-top: 10rem;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  border-top-color: var(--clr-primary-5);
+  animation: spinner 0.6s linear infinite;
+}
+
+#fountainG {
+  position: relative;
+  width: 234px;
+  height: 28px;
+  margin: auto;
+}
+
+.fountainG {
+  position: absolute;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  width: 28px;
+  height: 28px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 1.5s;
+  -o-animation-duration: 1.5s;
+  -ms-animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(0.3);
+  -o-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  border-radius: 19px;
+  -o-border-radius: 19px;
+  -ms-border-radius: 19px;
+  -webkit-border-radius: 19px;
+  -moz-border-radius: 19px;
+}
+
+#fountainG_1 {
+  left: 0;
+  animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  -ms-animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+}
+
+#fountainG_2 {
+  left: 29px;
+  animation-delay: 0.75s;
+  -o-animation-delay: 0.75s;
+  -ms-animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+  -moz-animation-delay: 0.75s;
+}
+
+#fountainG_3 {
+  left: 58px;
+  animation-delay: 0.9s;
+  -o-animation-delay: 0.9s;
+  -ms-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+  -moz-animation-delay: 0.9s;
+}
+
+#fountainG_4 {
+  left: 88px;
+  animation-delay: 1.05s;
+  -o-animation-delay: 1.05s;
+  -ms-animation-delay: 1.05s;
+  -webkit-animation-delay: 1.05s;
+  -moz-animation-delay: 1.05s;
+}
+
+#fountainG_5 {
+  left: 117px;
+  animation-delay: 1.2s;
+  -o-animation-delay: 1.2s;
+  -ms-animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+}
+
+#fountainG_6 {
+  left: 146px;
+  animation-delay: 1.35s;
+  -o-animation-delay: 1.35s;
+  -ms-animation-delay: 1.35s;
+  -webkit-animation-delay: 1.35s;
+  -moz-animation-delay: 1.35s;
+}
+
+#fountainG_7 {
+  left: 175px;
+  animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+}
+
+#fountainG_8 {
+  left: 205px;
+  animation-delay: 1.64s;
+  -o-animation-delay: 1.64s;
+  -ms-animation-delay: 1.64s;
+  -webkit-animation-delay: 1.64s;
+  -moz-animation-delay: 1.64s;
+}
+
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
+    background-color: rgb(0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-o-keyframes bounce_fountainG {
+  0% {
+    -o-transform: scale(1);
+    background-color: rgb(0, 0, 0);
+  }
+
+  100% {
+    -o-transform: scale(0.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-ms-keyframes bounce_fountainG {
+  0% {
+    -ms-transform: scale(1);
+    background-color: rgb(0, 0, 0);
+  }
+
+  100% {
+    -ms-transform: scale(0.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: rgb(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: scale(0.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-moz-keyframes bounce_fountainG {
+  0% {
+    -moz-transform: scale(1);
+    background-color: rgb(0, 0, 0);
+  }
+
+  100% {
+    -moz-transform: scale(0.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+/* 
+==========
+end loading
+==========
+*/
+
+/* 
+====== 
+Buttons 
+======
+*/
+.btn,
+.btn-white,
+.btn-primary {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+  padding: 0.45rem 0.8rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: transparent;
+}
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+.btn-white {
+  background: transparent;
+  color: var(--mainWhite);
+  border-color: var(--mainWhite);
+}
+.btn-white:hover {
+  background: var(--mainWhite);
+  color: var(--primaryColor);
+}
+.btn-primary {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  border-color: var(--primaryColor);
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+.btn-block {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--lightShadow);
+  text-align: center;
+}
+/* 
+====== 
+Header
+======
+*/
+
+.header {
+  padding: 2rem 0;
+}
+.logo {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 0rem;
+  width: 7.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header ul {
+  display: flex;
+  justify-content: space-between;
+  width: var(--smallWidth);
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-width: var(--maxWidth);
+}
+.header ul div {
+  display: flex;
+  align-items: center;
+}
+.header a {
+  text-transform: capitalize;
+  margin: 0 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  transition: var(--mainTransition);
+}
+.header a:hover {
+  color: var(--primaryColor);
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    width: 9rem;
+  }
+  .header a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+}
+.errorpage {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+}
+.error-img {
+  border-radius: 2rem;
+  margin-top: 3rem;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.center button {
+  background: rgb(19, 117, 19);
+  border: 1px green solid;
+  border-radius: 4px;
+}
+.center button:hover {
+  color: green;
+}
+@media screen and (min-width: 768px) {
+  .errorpage {
+    max-width: 60rem;
+  }
+  .error-img {
+    margin-top: 1rem;
+  }
+  .center {
+    margin-top: 1rem;
+  }
+  .center button{
+	  font-size: 1.3rem;
+  }
 }
