@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 // components
 import Header from "./components/Header";
+
+
 // pages
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
@@ -18,6 +20,7 @@ const App = () => {
     <>
       <Globalstyle />
       <Header />
+      
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/About" component={About} />
