@@ -408,3 +408,39 @@ Header
 	  font-size: 1.3rem;
   }
 }
+/* 
+====== 
+About
+======
+*/
+.about-section {
+  width: var(--smallWidth);
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+}
+.about-section p {
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+
+
+/* 
+====== 
+Product List
+======
+*/
+
+.section {
+  padding: 4rem 0;
+}
+.section-title,
+.search-errors {
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
