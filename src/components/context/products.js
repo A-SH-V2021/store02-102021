@@ -5,7 +5,7 @@ import Login from "../pages/Login";
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
   const [feature, setFeature] = useState([]);
@@ -13,7 +13,7 @@ export const ProductsProvider = ({ children }) => {
   const fetchData = async (url) => {
     setLoading(true);
     const response = await axios(url).then((res) => res.data);
-    console.log(response);
+
     try {
       if (response) {
         setLoading(false);
@@ -30,9 +30,9 @@ export const ProductsProvider = ({ children }) => {
     fetchData(url);
     return () => {};
   }, []);
-
+  console.log(products);
   return (
-    <ProductsContext.Provider value={{ loading }}>
+    <ProductsContext.Provider value={{ loading, products }}>
       {children}
     </ProductsContext.Provider>
   );

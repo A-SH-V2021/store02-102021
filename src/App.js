@@ -8,7 +8,7 @@ import Header from "./components/Header";
 // pages
 import About from "./components/pages/About";
 import Home from "./components/pages/Home";
-import Products from "./components/pages/products";
+import Products from "./components/pages/Products";
 import Cart from "./components/pages/Cart";
 import Login from "./components/pages/Login";
 import Error from "./components/pages/Error";

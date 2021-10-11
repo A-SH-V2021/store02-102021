@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import Hero from "../Hero.jsx";
 import { Link } from "react-router-dom";
-import { useProductsContext } from "../context/products";
+
 
 // Component
-import Loading from "../Loading";
-const Home = () => {
-  const { loading } = useProductsContext();
 
-  if (loading) {
-    return <Loading />;
-  }
+const Home = () => {
+   
   return (
     <>
       <Hero>
