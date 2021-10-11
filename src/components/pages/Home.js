@@ -1,7 +1,10 @@
 import React from "react";
 import Hero from "../Hero.jsx";
 import { Link } from "react-router-dom";
+import {useProductsContext} from '../context/products'
 const Home = () => {
+  const x=useProductsContext()
+  
   return (
     <>
       <Hero>
