@@ -1,11 +1,14 @@
-import React from 'react'
-
+import React from "react";
+import ProductsList from "./ProductList";
+import { useProductsContext } from "../context/products";
 const FeaturedProducts = () => {
-    return (
-        <div>
-            <h2>featured products</h2>
-        </div>
-    )
-}
+  const { products } = useProductsContext();
+  const data = products.slice(0, 4);
+  return (
+    <div>
+      <ProductsList title="some of products" products={data} />
+    </div>
+  );
+};
 
-export default FeaturedProducts
+export default FeaturedProducts;

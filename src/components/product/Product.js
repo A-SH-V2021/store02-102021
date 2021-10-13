@@ -7,7 +7,7 @@ const Product = ({ id, name, image, price }) => {
     <Wrapper>
       <div className="img-container">
         <img src={image} alt={name} />
-        <Link to="/products/id" className="btn btn-primary">
+        <Link to={`/products/${id}`} className="btn btn-primary">
           details
         </Link>
       </div>
@@ -76,4 +76,3 @@ const Wrapper = styled.article`
   }
 `;
 export default Product;
-

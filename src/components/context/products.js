@@ -8,16 +8,18 @@ export const ProductsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
-  const [feature, setFeature] = useState([]);
+  // const [feature, setFeature] = useState([]);
 
   const fetchData = async (url) => {
     setLoading(true);
     const response = await axios(url).then((res) => res.data);
-
+   
+    
     try {
       if (response) {
         setLoading(false);
         setProducts(response);
+       
       } else {
         setError(true);
       }
@@ -30,7 +32,7 @@ export const ProductsProvider = ({ children }) => {
     fetchData(url);
     return () => {};
   }, []);
-  console.log(products);
+  
   return (
     <ProductsContext.Provider value={{ loading, products }}>
       {children}
