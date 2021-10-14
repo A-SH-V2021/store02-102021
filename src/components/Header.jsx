@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import reactimg from "../images/react-img.jpeg";
+import reactimg from "../images/react-logo.png";
 const Header = () => {
   return (
     <header className="header">
