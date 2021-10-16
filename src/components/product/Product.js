@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useProductsContext } from "../context/products";
 
 const Product = ({ id, name, image, price }) => {
+  const {handleDetails} = useProductsContext();
   return (
     <Wrapper>
       <div className="img-container">
         <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className="btn btn-primary">
+        <Link
+          to={`/products/${id}`}
+          className="btn btn-primary"
+          onClick={() => handleDetails(id)}
+        >
           details
         </Link>
       </div>
