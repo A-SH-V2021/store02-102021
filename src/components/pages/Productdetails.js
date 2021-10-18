@@ -1,33 +1,32 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { useProductsContext } from "../context/products";
 
 const Productdetails = () => {
-  const { details } = useProductsContext();
+  const { products } = useProductsContext();
+  const { id } = useParams();
   const history = useHistory();
+  const product = products.find((item) => item.id === id);
+
+  const { image, name, description, price } = product;
   return (
-    <div>
-      {details.map((item) => {
-        const { id, name, description, image, price } = item;
-        return (
-          <Wrapper>
-            <img src={image} alt={name} className="single-product-image" />
-            <article>
-              <h1>{name}</h1>
-              <h2>{price}$</h2>
-              <p>{description}</p>
-              <button
-                className="btn btn-primary"
-                onClick={() => history.push("/cart")}
-              >
-                add to cart
-              </button>
-            </article>
-          </Wrapper>
-        );
-      })}
-    </div>
+    <>
+      <Wrapper>
+        <img src={image} alt={name} className="single-product-image" />
+        <article>
+          <h1>{name}</h1>
+          <h2>{price}$</h2>
+          <p>{description}</p>
+          <button
+            className="btn btn-primary"
+            onClick={() => history.push("/cart")}
+          >
+            add to cart
+          </button>
+        </article>
+      </Wrapper>
+    </>
   );
 };
 
@@ -40,6 +39,8 @@ const Wrapper = styled.section`
   align-self: center;
   margin: 0 auto;
   margin-bottom: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
   article {
     margin-bottom: 3rem;
@@ -55,6 +56,9 @@ h2 {
 p {
   line-height: 2;
   letter-spacing: 1px;
+}
+button{
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
     display: grid;

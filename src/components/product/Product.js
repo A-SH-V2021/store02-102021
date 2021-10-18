@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useProductsContext } from "../context/products";
 
 const Product = ({ id, name, image, price }) => {
-  const {handleDetails} = useProductsContext();
+  
   return (
     <Wrapper>
       <div className="img-container">
@@ -12,7 +12,6 @@ const Product = ({ id, name, image, price }) => {
         <Link
           to={`/products/${id}`}
           className="btn btn-primary"
-          onClick={() => handleDetails(id)}
         >
           details
         </Link>
