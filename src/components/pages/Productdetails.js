@@ -11,22 +11,20 @@ const Productdetails = () => {
 
   const { image, name, description, price } = product;
   return (
-    <>
-      <Wrapper>
-        <img src={image} alt={name} className="single-product-image" />
-        <article>
-          <h1>{name}</h1>
-          <h2>{price}$</h2>
-          <p>{description}</p>
-          <button
-            className="btn btn-primary"
-            onClick={() => history.push("/cart")}
-          >
-            add to cart
-          </button>
-        </article>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <img src={image} alt={name} className="single-product-image" />
+      <article>
+        <h1>{name}</h1>
+        <h2>{price}$</h2>
+        <p>{description}</p>
+        <button
+          className="btn btn-primary"
+          onClick={() => history.push("/cart")}
+        >
+          add to cart
+        </button>
+      </article>
+    </Wrapper>
   );
 };
 
@@ -57,12 +55,10 @@ p {
   line-height: 2;
   letter-spacing: 1px;
 }
-button{
-  text-align: center;
-}
 @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: 2fr 3fr;
     column-gap: 3rem;
 `;
+
 export default Productdetails;
