@@ -23,10 +23,12 @@ const Wrraper = styled.div`
     justify-content: center;
     align-items: center;
     color: var(--primaryDarkColor);
+    border-radius: 1rem;
   }
   .banner {
     width: var(--smallWidth);
     max-width: var(--fullWidth);
+    padding-left: 0.5rem;
   }
   .hero h1 {
     font-size: 3rem;
