@@ -10,6 +10,7 @@ const Productdetails = () => {
   const product = products.find((item) => item.id === id);
 
   const { image, name, description, price } = product;
+  
   return (
     <Wrapper>
       <img src={image} alt={name} className="single-product-image" />
@@ -32,6 +33,7 @@ const Wrapper = styled.section`
   width: var(--smallWidth);
   max-width: var(--fullWidth);
   margin: 4rem auto;
+  
   .single-product-image {
   max-width: 25rem;
   align-self: center;
@@ -59,6 +61,8 @@ p {
     display: grid;
     grid-template-columns: 2fr 3fr;
     column-gap: 3rem;
+}
 `;
-
 export default Productdetails;
+
+
