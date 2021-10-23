@@ -15,10 +15,12 @@ const Cart = () => {
   return (
     <Wrapper>
       <h2>your Cart</h2>
-      {cart.map((item) => {
-        return <CartItem key={item.id} {...item}></CartItem>;
-      })}
-      <h2>total: {total}</h2>
+      <div className="items">
+        {cart.map((item) => {
+          return <CartItem key={item.id} {...item}></CartItem>;
+        })}
+      </div>
+      <h3>total: {total}</h3>
       {user ? (
         <Link to="/Checkout" className="btn btn-primary btn-block">
           Checkout
@@ -36,10 +38,37 @@ const Wrapper = styled.section`
   width: var(--smallWidth);
   margin: 0 auto;
   max-width: var(--maxWidth);
+  .items {
+    display: grid;
+    grid-template-columns: auto;
+  }
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
     text-transform: capitalize;
+    transition:all 0.4s ease-in-out;
+  }
+  h3{
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .btn {
+    margin-bottom: 1rem;
+  }
+  @media screen and (min-width: 768px) {
+    max-width: 80%;
+    .items {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 2rem;
+    }
+    h2 {
+      margin-top: 2rem;
+      font-size: 3rem;
+    }
+    .btn-block {
+      max-width: 20%;
+      border-radius: 1rem;
+    }
   }
 `;
 export default Cart;
