@@ -14,7 +14,7 @@ const Cart = () => {
 
   return (
     <Wrapper>
-      <h2>your Cart</h2>
+      <h2>order</h2>
       <div className="items">
         {cart.map((item) => {
           return <CartItem key={item.id} {...item}></CartItem>;
