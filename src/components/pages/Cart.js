@@ -43,6 +43,7 @@ const Wrapper = styled.section`
     grid-template-columns: auto;
   }
   h2 {
+    font-size: 2rem;
     margin-bottom: 1rem;
     text-align: center;
     text-transform: capitalize;

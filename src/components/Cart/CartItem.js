@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import {} from "../context/CartContext";
+import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
 const CartItem = ({ image, title, price, id }) => {
+
+  // cart context
   return (
     <Container>
       <div className="">
@@ -11,15 +14,17 @@ const CartItem = ({ image, title, price, id }) => {
           <h3>{title}</h3>
           <p>{price} $</p>
         </div>
-        <button className="btn">remove</button>
+        <button className="btn" onClick={() => console.log(`remove`)}>
+          remove
+        </button>
       </div>
       <div className="amount">
-        <button>
-          <AiOutlineArrowUp className="incraise" />
+        <button className="incraise" onClick={() => console.log(`increase`)}>
+          <FaAngleUp />
         </button>
         <p>1</p>
-        <button>
-          <AiOutlineArrowDown className="decraise" />
+        <button className="decraise" onClick={() => console.log(`decrease`)}>
+          <FaAngleDown />
         </button>
       </div>
     </Container>
@@ -71,19 +76,20 @@ const Container = styled.section`
     justify-content: space-around;
   }
   .amount p {
-    background: #f15025;
-    color: white;
+    background: transparent;
     border-radius: 50%;
     margin: 0.4px;
-    color: black;
+    font-size: 1.5rem;
   }
   .incraise,
   .decraise {
-    font-size: 1.2rem;
+    border: none;
+    font-size: 1.5rem;
     padding: 0.2rem;
+    cursor: pointer;
+    color: #f15025;
   }
   @media screen and (min-width: 768px) {
-
     /* grid-template-columns: 1fr auto; */
   }
 `;
