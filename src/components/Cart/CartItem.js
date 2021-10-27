@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import {} from "../context/CartContext";
+import { useCartContext } from "../context/CartContext";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-const CartItem = ({ image, title, price, id }) => {
-
+const CartItem = ({ image, title, price, id,amount }) => {
   // cart context
+  const { cartItems, removeItem, increaseHandle, decreaseHandle } =
+    useCartContext();
   return (
     <Container>
       <div className="">
@@ -14,16 +15,16 @@ const CartItem = ({ image, title, price, id }) => {
           <h3>{title}</h3>
           <p>{price} $</p>
         </div>
-        <button className="btn" onClick={() => console.log(`remove`)}>
+        <button className="btn" onClick={() => removeItem(id)}>
           remove
         </button>
       </div>
       <div className="amount">
-        <button className="incraise" onClick={() => console.log(`increase`)}>
+        <button className="incraise" onClick={() => increaseHandle(id)}>
           <FaAngleUp />
         </button>
-        <p>1</p>
-        <button className="decraise" onClick={() => console.log(`decrease`)}>
+        <p>{amount}</p>
+        <button className="decraise" onClick={() => decreaseHandle(id,amount)}>
           <FaAngleDown />
         </button>
       </div>

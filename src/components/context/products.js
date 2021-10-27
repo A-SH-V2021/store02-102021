@@ -8,7 +8,6 @@ export const ProductsProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [products, setProducts] = useState([]);
-  
 
   const fetchData = async (url) => {
     setLoading(true);
@@ -25,8 +24,6 @@ export const ProductsProvider = ({ children }) => {
       console.log(`there is an error get data:${error}`);
     }
   };
-
-  
 
   useEffect(() => {
     fetchData(url);
