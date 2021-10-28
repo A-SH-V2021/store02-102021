@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import Localcart from "../../utils/localCart";
-
+// import Localcart from "../../utils/localCart";
+import { single_product_url as urll } from "../../utils/content";
+import axios from "axios";
 const CartContext = React.createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(Localcart);
+  const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState(0);
 
@@ -35,9 +36,9 @@ export const CartProvider = ({ children }) => {
     setCart(newArray);
   };
 
-  const decreaseHandle = (id,amount) => {
-    if (amount===1) {
-      removeItem(id)
+  const decreaseHandle = (id, amount) => {
+    if (amount === 1) {
+      removeItem(id);
     } else {
       const newArray = [...cart].map((item) => {
         return item.id === id
@@ -46,6 +47,27 @@ export const CartProvider = ({ children }) => {
       });
       setCart(newArray);
     }
+  };
+  const addToCart = async (x) => {
+    const productDetails = await axios.get(`${urll}${x}`).then((item) => {
+      return item.data;
+    });
+    console.log(productDetails);
+    const { id, name, price, stock, images } = productDetails;
+    const product = [...cart].find((item) => item.id === id);
+    if (product) {
+      increaseHandle(id);
+      return;
+    } else {
+      const image = images[0].url;
+      const newItems = { id, name, price, amount: stock, image };
+      let newCart = [...cart, newItems];
+      setCart(newCart);
+    }
+  };
+
+  const clearCart = () => {
+    setCart([]);
   };
 
   return (
@@ -57,6 +79,8 @@ export const CartProvider = ({ children }) => {
         removeItem,
         increaseHandle,
         decreaseHandle,
+        clearCart,
+        addToCart,
       }}
     >
       {children}

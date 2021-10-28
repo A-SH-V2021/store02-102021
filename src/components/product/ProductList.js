@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const ProductsList = ({ title, products }) => {
-  
   return (
     <Wrapper className="section">
       <h1 className="section-title">{title}</h1>
