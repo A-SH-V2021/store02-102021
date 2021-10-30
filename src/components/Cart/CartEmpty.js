@@ -9,7 +9,7 @@ const CartEmpty = () => {
       <div className="center">
         <h3>there's no item to show</h3>
         <button className="btn btn-primary" onClick={() => history.push("/products")}>
-          home
+          products
         </button>
       </div>
     </Wrapper>

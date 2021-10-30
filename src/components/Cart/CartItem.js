@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { useCartContext } from "../context/CartContext";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-const CartItem = ({ image, title, price, id,amount }) => {
+const CartItem = ({ image, title, price, id, amount }) => {
   // cart context
   const { cartItems, removeItem, increaseHandle, decreaseHandle } =
     useCartContext();
   return (
     <Container>
-      <div className="">
-        <img src={image} alt={title} />
+      <div>
+        <img src={image} alt={title} className="img" />
         <div className="title-card">
           <h3>{title}</h3>
           <p>{price} $</p>
@@ -24,7 +24,7 @@ const CartItem = ({ image, title, price, id,amount }) => {
           <FaAngleUp />
         </button>
         <p>{amount}</p>
-        <button className="decraise" onClick={() => decreaseHandle(id,amount)}>
+        <button className="decraise" onClick={() => decreaseHandle(id, amount)}>
           <FaAngleDown />
         </button>
       </div>
@@ -39,7 +39,9 @@ const Container = styled.section`
   padding: 2rem;
   box-shadow: 5px 10px 8px #888888;
   border-radius: 1rem;
-  .title-card {
+  .img {
+    width: 22rem;
+    height: 15rem;
   }
   .title-card h3 {
     margin: 0px;
@@ -91,7 +93,9 @@ const Container = styled.section`
     color: #f15025;
   }
   @media screen and (min-width: 768px) {
-    /* grid-template-columns: 1fr auto; */
+    .img {
+      width: 12rem;
+    }
   }
 `;
 export default CartItem;

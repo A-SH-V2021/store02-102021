@@ -60,7 +60,7 @@ export const CartProvider = ({ children }) => {
       return;
     } else {
       const image = images[0].url;
-      const newItems = { id, name, price, amount: stock, image };
+      const newItems = { id, name, price, amount: 1, image };
       let newCart = [...cart, newItems];
       setCart(newCart);
     }
