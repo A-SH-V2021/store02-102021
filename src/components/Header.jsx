@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import reactimg from "../images/react-logo.png";
+
+// components
+import  Cartlink  from "../components/Cart/Cartlink";
 const Header = () => {
   return (
     <header className="header">
-      <Link to="/" className=''>
+      <Link to="/" className="">
         <img src={reactimg} alt="react project img" className="logo" />
       </Link>
       <nav>
@@ -24,9 +27,7 @@ const Header = () => {
             <li>
               <Link to="/Login">login</Link>
             </li>
-            <li>
-              <Link to="/Cart">cart</Link>
-            </li>
+            <Cartlink />
           </div>
         </ul>
       </nav>

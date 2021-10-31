@@ -78,10 +78,6 @@ const Wrapper = styled.section`
       border-radius: 1rem;
     }
   }
-  /* @media screen and (min-width: 768px) {
-    .items {
-      grid-template-columns: 1fr;
-    } */
-  /* } */
+  }
 `;
 export default Cart;

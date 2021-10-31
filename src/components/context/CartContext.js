@@ -4,12 +4,22 @@ import { single_product_url as urll } from "../../utils/content";
 import axios from "axios";
 const CartContext = React.createContext();
 
+function getDataFromLocalStorage() {
+  let data;
+  if (localStorage.getItem("cart").length < 1) {
+    return [];
+  } else {
+    data = JSON.parse(localStorage.getItem("cart"));
+  }
+  return data;
+}
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(getDataFromLocalStorage);
   const [total, setTotal] = useState(0);
   const [cartItems, setCartItems] = useState(0);
 
   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
     let newCartItem = cart.reduce((total, item) => {
       return (total += item.amount);
     }, 0);
@@ -52,7 +62,7 @@ export const CartProvider = ({ children }) => {
     const productDetails = await axios.get(`${urll}${x}`).then((item) => {
       return item.data;
     });
-    console.log(productDetails);
+
     const { id, name, price, stock, images } = productDetails;
     const product = [...cart].find((item) => item.id === id);
     if (product) {
